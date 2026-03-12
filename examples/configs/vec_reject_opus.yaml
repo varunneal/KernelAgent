@@ -1,0 +1,22 @@
+# Vector rejection optimization — Claude Opus 4.6
+#
+# Usage:
+#   python examples/run_opt_manager.py \
+#       --kernel-dir examples/optimize_04_vec_reject \
+#       --strategy beam_search \
+#       --max-rounds 5
+
+strategy: beam_search
+num_workers: 4
+strategy_config:
+  num_top_kernels: 2
+  num_bottlenecks: 2
+openai_model: claude-opus-4-6
+high_reasoning_effort: true
+
+# Worker configuration
+benchmark_warmup: 25
+benchmark_repeat: 100
+divergence_threshold: 50.0
+target_platform: cuda
+gpu_name: "NVIDIA H100 SXM5 80GB"
