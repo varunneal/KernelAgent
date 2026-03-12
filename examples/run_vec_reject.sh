@@ -50,8 +50,8 @@ python -c "
 from pathlib import Path
 from triton_kernel_agent.opt_manager import OptimizationManager
 
-kernel_dir = Path('$KERNEL_DIR')
-config_path = '$CONFIG'
+kernel_dir = Path('$KERNEL_DIR').resolve()
+config_path = Path('$CONFIG').resolve()
 max_rounds = $MAX_ROUNDS
 log_dir = kernel_dir / 'opt_logs'
 
